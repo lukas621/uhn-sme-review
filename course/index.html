@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>Accessibility First Series — Guide 01: Foundations of Disability, Inclusion & Accessible Design</title>
+<link rel="stylesheet" href="css/course.css">
+</head>
+<body>
+<!-- ═══════ WELCOME DIALOG ═══════ -->
+<div class="welcome-overlay" id="welcomeOverlay" role="dialog" aria-modal="true" aria-label="Welcome — enter your name to begin">
+  <div class="welcome-card">
+    <img class="welcome-logo" src="assets/uhn-logo-dark.png" alt="UHN — Canada's Hospital">
+    <div class="welcome-eyebrow">ACCESSIBILITY FIRST SERIES</div>
+    <h2>Guide 01: <span class="accent">Foundations</span></h2>
+    <p class="welcome-sub">Foundations of Disability, Inclusion &amp; Accessible Design</p>
+    <div class="welcome-fields">
+      <div class="welcome-field">
+        <label for="welcomeName">Your Name</label>
+        <input type="text" id="welcomeName" placeholder="Enter your full name" autocomplete="name">
+        <span class="error-msg">Please enter your name</span>
+      </div>
+      <div class="welcome-field">
+        <label for="welcomeRole">Your Role</label>
+        <input type="text" id="welcomeRole" placeholder="e.g. Nurse, Clerk, Physician, Manager" autocomplete="organization-title">
+        <span class="error-msg">Please enter your role</span>
+      </div>
+    </div>
+    <div class="welcome-buttons" id="welcomeButtons">
+      <button class="welcome-start-btn" id="welcomeStartBtn">BEGIN GUIDE</button>
+      <button class="welcome-resume-btn" id="welcomeResumeBtn" style="display:none;">RESUME — SLIDE 2</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ SLIDE 1: 1.1 Welcome and Course Purpose ═══════ -->
+<section class="slide s-title active" data-slide="1">
+  <div class="left">
+    <div class="brandline">
+      <img class="logo" src="assets/uhn-logo.png" alt="UHN Canada's Hospital">
+      <span>ACCESSIBILITY FIRST SERIES</span>
+    </div>
+    <div>
+      <div class="guide-num" style="margin-bottom:32px;">GUIDE 01 OF 18 · FOUNDATIONS</div>
+      <h1 style="margin-bottom:28px;">
+        Foundations of Disability, Inclusion &amp; <span style="color:var(--lilac)">Accessible Design</span>
+      </h1>
+      <div class="sub">Over the next 15 to 20 minutes, you'll build the foundation for this 18-guide series. You'll explore what disability means, examine the models that shape how we think about it, and learn a practical framework you can use starting today.</div>
+    </div>
+    <div class="meta-row">
+      <div class="meta">Duration<b>15–20 min</b></div>
+      <div class="meta">Audience<b>All UHN Staff</b></div>
+      <div class="meta">Version<b>v1.0 · 2026</b></div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="hero-photo"><img src="media/images/g01-hero-welcome-01.png" alt="A diverse group of healthcare workers walking toward a hospital entrance, including a person using a power wheelchair and a person carrying a white cane."></div>
+    <div class="start-bar">
+      <div class="status">GUIDE 01 OF 18</div>
+      <button class="cta" onclick="goSlide(2)">Begin</button>
+    </div>
+  </div>
+<div class="slide-footer dark">
+  <div class="left"></div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(1 - 1)">‹</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">1 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(1 + 1)">›</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 2: 1.2 Learning Objectives ═══════ -->
+<section class="slide" data-slide="2">
+<div class="topbar">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+  <div class="brand">
+    <img class="logo" src="assets/uhn-logo.png" alt="UHN">
+    <div class="sep" aria-hidden="true"></div>
+    <div class="ctx">ACCESSIBILITY FIRST</div>
+  </div>
+  <div class="crumbs">Guide 01 · Foundations › <b>Learning Objectives</b></div>
+</div>
+  <div class="title-block">
+    <div class="eyebrow">SCREEN 1.2 · OBJECTIVES</div>
+    <h1>What You Will Learn</h1>
+    <div class="lede">By the end of this guide, you'll be able to do four things:</div>
+  </div>
+  <div class="obj-grid">
+    <div class="obj-card" tabindex="0">
+      <div class="num">01</div>
+      <div class="body">
+        <h3>Define disability through multiple lenses</h3>
+        <p>Distinguish between the medical, social, and human-rights models of disability.</p>
+      </div>
+    </div>
+    <div class="obj-card" tabindex="0">
+      <div class="num">02</div>
+      <div class="body">
+        <h3>Identify visible and invisible barriers</h3>
+        <p>Recognize the physical, sensory, attitudinal, communication, and systemic barriers a person may encounter at UHN.</p>
+      </div>
+    </div>
+    <div class="obj-card featured" tabindex="0">
+      <div class="num">03</div>
+      <div class="body">
+        <h3>Apply the Accessibility in Practice model</h3>
+        <p>Use the four areas (Awareness, Communication, Environment, Response) to guide everyday decisions.</p>
+      </div>
+    </div>
+    <div class="obj-card" tabindex="0">
+      <div class="num">04</div>
+      <div class="body">
+        <h3>Use the 5-step Decision Path</h3>
+        <p>Pause and Assess, Listen, Apply, Adapt, and Seek Support when an accessibility need is identified.</p>
+      </div>
+    </div>
+  </div>
+<div class="slide-footer">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(2 - 1)">‹</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">2 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(2 + 1)">›</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 3: 1.3 Why This Matters in Healthcare ═══════ -->
+<section class="slide" data-slide="3">
+<div class="topbar">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+  <div class="brand">
+    <img class="logo" src="assets/uhn-logo.png" alt="UHN">
+    <div class="sep" aria-hidden="true"></div>
+    <div class="ctx">ACCESSIBILITY FIRST</div>
+  </div>
+  <div class="crumbs">Guide 01 · Foundations › <b>Why This Matters</b></div>
+</div>
+
+  <div class="title-block">
+    <div class="eyebrow">SCREEN 1.3A · HEALTHCARE CONTEXT</div>
+    <h1>1 in 4 Canadians live with a <span class="accent">disability</span></h1>
+  </div>
+  <div class="why-grid">
+    <div class="photo has-img" style="height:540px;"><img src="media/images/g01-context-barriers-01.png" alt="A young woman in a wheelchair reaching toward directional signs in a hospital corridor while a volunteer assists."></div>
+    <div class="why-body">
+      <div class="stat-block">
+        <div class="num">27%</div>
+        <div class="text"><b>Statistics Canada, 2022</b></div>
+      </div>
+      <p>According to Statistics Canada, more than 27% of Canadians aged 15 and older have at least one disability. In Ontario, that number is even higher.</p>
+      <p>That means more than one in four people who come to UHN for care may experience barriers. And many disabilities are non-visible.</p>
+      <div class="key-takeaway">
+        <div class="lbl">KEY TAKEAWAY</div>
+        <p>Disability is not rare — it is part of everyday life at UHN. Accessible care is not optional; it is essential.</p>
+      </div>
+    </div>
+  </div>
+<div class="slide-footer">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(3 - 1)">&#8249;</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">3 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(3 + 1)">&#8250;</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 4: 1.3B Impact: Missed Care ═══════ -->
+<section class="slide" data-slide="4">
+<div class="topbar">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+  <div class="brand">
+    <img class="logo" src="assets/uhn-logo.png" alt="UHN">
+    <div class="sep" aria-hidden="true"></div>
+    <div class="ctx">ACCESSIBILITY FIRST</div>
+  </div>
+  <div class="crumbs">Guide 01 · Foundations › <b>Impact: Missed Care</b></div>
+</div>
+
+  <div class="title-block">
+    <div class="eyebrow">SCREEN 1.3B · IMPACT</div>
+    <h1>Impact: <span class="accent">Missed Care</span></h1>
+  </div>
+  <div class="why-grid">
+    <div class="photo has-img" style="height:540px;"><img src="media/images/g01-impact-missed-care-01.png" alt="An empty hospital waiting area with a self-check-in kiosk mounted too high for wheelchair users, hard plastic chairs without armrests, and a small-print sign on the wall."></div>
+    <div class="why-body">
+      <p>Patients avoid appointments because booking systems are unusable, entrances are inaccessible, or intake forms create barriers before care even begins.</p>
+      <p>Healthcare systems were often designed without disability in mind — narrow doorways, small print on forms, phone-only booking, waiting rooms with no seating options.</p>
+      <div class="key-takeaway">
+        <div class="lbl">KEY TAKEAWAY</div>
+        <p>Every missed appointment is a missed diagnosis.</p>
+      </div>
+    </div>
+  </div>
+<div class="slide-footer">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(4 - 1)">&#8249;</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">4 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(4 + 1)">&#8250;</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 5: 1.3C Impact: Communication Gap ═══════ -->
+<section class="slide" data-slide="5">
+<div class="topbar">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+  <div class="brand">
+    <img class="logo" src="assets/uhn-logo.png" alt="UHN">
+    <div class="sep" aria-hidden="true"></div>
+    <div class="ctx">ACCESSIBILITY FIRST</div>
+  </div>
+  <div class="crumbs">Guide 01 · Foundations › <b>Impact: Communication Gap</b></div>
+</div>
+
+  <div class="title-block">
+    <div class="eyebrow">SCREEN 1.3C · IMPACT</div>
+    <h1>Impact: <span style="color:var(--cobalt);">Communication Gap</span></h1>
+  </div>
+  <div class="why-grid">
+    <div class="photo has-img" style="height:540px;"><img src="media/images/g01-impact-communication-gap-01.png" alt="A healthcare worker at a computer speaking over their shoulder while a patient with a hearing aid leans forward trying to follow the conversation."></div>
+    <div class="why-body">
+      <p>Misdiagnosis and inadequate treatment occur when communication barriers are not addressed — wrong assumptions about what a patient needs, speaking too quickly, or relying on written-only instructions.</p>
+      <p>A patient who cannot access information in their preferred format cannot participate fully in their own care.</p>
+      <div class="key-takeaway" style="border-left-color:var(--cobalt); background:var(--cobalt-bg);">
+        <div class="lbl" style="color:var(--cobalt);">KEY TAKEAWAY</div>
+        <p>Communication is care. If the message doesn't land, the care doesn't either.</p>
+      </div>
+    </div>
+  </div>
+<div class="slide-footer">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(5 - 1)">&#8249;</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">5 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(5 + 1)">&#8250;</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 6: 1.3D Impact: Avoidance ═══════ -->
+<section class="slide" data-slide="6">
+<div class="topbar">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+  <div class="brand">
+    <img class="logo" src="assets/uhn-logo.png" alt="UHN">
+    <div class="sep" aria-hidden="true"></div>
+    <div class="ctx">ACCESSIBILITY FIRST</div>
+  </div>
+  <div class="crumbs">Guide 01 · Foundations › <b>Impact: Avoidance</b></div>
+</div>
+
+  <div class="title-block">
+    <div class="eyebrow">SCREEN 1.3D · IMPACT</div>
+    <h1>Impact: <span style="color:var(--navy);">Avoidance</span></h1>
+  </div>
+  <div class="why-grid">
+    <div class="photo has-img" style="height:540px;"><img src="media/images/g01-impact-avoidance-01.png" alt="A man in a wheelchair sitting on the sidewalk outside a hospital entrance, paused and looking toward the doors while others walk past without noticing."></div>
+    <div class="why-body">
+      <p>Patients delay or abandon care entirely because past experiences were inaccessible, dismissive, or dehumanizing. This is especially true for people who have experienced compounded barriers.</p>
+      <div style="margin-top:18px; border:1px solid var(--neutral); border-left:4px solid var(--chartreuse); padding:18px 22px; background:var(--chartreuse-bg);">
+        <div style="font-family:var(--font-head); font-size:14px; letter-spacing:3px; color:var(--chartreuse); text-transform:uppercase; margin-bottom:8px;">INDIGENOUS CONTEXT</div>
+        <p style="font-size:18px; line-height:1.45; color:#222; margin:0;">Indigenous peoples in Canada face compounded barriers — historical trauma, systemic racism, and geographic isolation intersect with disability to create unique challenges in accessing healthcare.</p>
+      </div>
+    </div>
+  </div>
+<div class="slide-footer">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(6 - 1)">&#8249;</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">6 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(6 + 1)">&#8250;</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 7: 1.4 Models of Disability ═══════ -->
+<section class="slide" data-slide="7">
+<div class="topbar">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+  <div class="brand">
+    <img class="logo" src="assets/uhn-logo.png" alt="UHN">
+    <div class="sep" aria-hidden="true"></div>
+    <div class="ctx">ACCESSIBILITY FIRST</div>
+  </div>
+  <div class="crumbs">Guide 01 · Foundations › <b>Models of Disability</b></div>
+</div>
+  <div class="title-block">
+    <div class="eyebrow">SCREEN 1.4 · CORE CONCEPT</div>
+    <h1>Three Models of <span class="accent">Disability</span></h1>
+    <div class="lede">How we think about disability shapes how we respond to it.</div>
+  </div>
+  <div class="tabbed">
+    <div class="tab-bar" role="tablist" aria-label="Models of disability">
+      <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tabpanel-medical" id="tab-medical">Medical Model</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tabpanel-social" id="tab-social">Social Model</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tabpanel-rights" id="tab-rights">Rights-Based Model</button>
+    </div>
+    <div class="tab-panel active" role="tabpanel" id="tabpanel-medical" aria-labelledby="tab-medical">
+      <div class="tp-title">Medical Model</div>
+      <p><b>Focus:</b> Individual deficit — "What's wrong with this person?"</p>
+      <p>The medical model focuses on what's "wrong" with a person. It treats disability as a condition to be fixed. This model has its place in clinical care, but when it's the only lens, it puts all the responsibility on the individual.</p>
+    </div>
+    <div class="tab-panel" role="tabpanel" id="tabpanel-social" aria-labelledby="tab-social">
+      <div class="tp-title">Social Model</div>
+      <p><b>Focus:</b> Environmental barriers — "What barriers exist in our systems?"</p>
+      <p>The social model shifts the focus to the environment. It says disability happens when barriers in our systems, spaces, and attitudes prevent someone from participating. A person who uses a wheelchair isn't disabled by the wheelchair — they're disabled by stairs.</p>
+    </div>
+    <div class="tab-panel" role="tabpanel" id="tabpanel-rights" aria-labelledby="tab-rights">
+      <div class="tp-title">Rights-Based Model</div>
+      <p><b>Focus:</b> Human rights and equal participation (UN CRPD)</p>
+      <p>The rights-based model goes further. It says people with disabilities have a legal and moral right to full participation. This is the model behind the UN Convention on the Rights of Persons with Disabilities and Ontario's AODA.</p>
+    </div>
+  </div>
+  <div class="summary-bar" style="margin-top:28px;">
+    <div class="lbl">UHN APPROACH</div>
+    <p>At UHN, we use rights-based and social model thinking — <b>focusing on removing barriers rather than expecting individuals to adapt.</b></p>
+  </div>
+<div class="slide-footer">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(7 - 1)">‹</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">7 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(7 + 1)">›</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 8: 1.5 Accessibility in Practice Model ═══════ -->
+<section class="slide" data-slide="8">
+<div class="topbar">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+  <div class="brand">
+    <img class="logo" src="assets/uhn-logo.png" alt="UHN">
+    <div class="sep" aria-hidden="true"></div>
+    <div class="ctx">ACCESSIBILITY FIRST</div>
+  </div>
+  <div class="crumbs">Guide 01 · Foundations › <b>Accessibility in Practice</b></div>
+</div>
+  <div class="title-block">
+    <div class="eyebrow">SCREEN 1.5 · FRAMEWORK — 4 QUADRANTS</div>
+    <h1>The Accessibility in Practice <span class="accent">Model</span></h1>
+    <div class="lede">Four interconnected areas you can use in any situation — at a patient's bedside, at the front desk, in a team meeting, or when designing a new process.</div>
+  </div>
+  <div class="card-grid g4" style="padding-top:24px;">
+    <div class="g-card navy-top" tabindex="0">
+      <div class="g-head"><div class="num">01</div><h3>Awareness</h3></div>
+      <div class="g-body">Recognize that accessibility needs may not be visible. Be mindful of bias and systemic barriers.
+        <ul><li>Scan environments and forms.</li><li>Notice assistive devices.</li><li>Watch your own assumptions.</li></ul>
+      </div>
+      <div class="g-detail">Before you can act, you need to notice. Practice scanning your environment for barriers, and check your own assumptions about who has needs and what those needs might be.</div>
+    </div>
+    <div class="g-card cobalt-top" tabindex="0">
+      <div class="g-head" style="background:var(--cobalt);"><div class="num">02</div><h3>Communication</h3></div>
+      <div class="g-body">Listen, ask, adapt to individual needs and cultural context.
+        <ul><li>Ask about preferred format.</li><li>Speak to the patient, not the companion.</li><li>Slow down when needed.</li></ul>
+      </div>
+      <div class="g-detail">Communication is two-way. Always speak directly to the person with the disability — not to their companion. Ask how they prefer to receive information.</div>
+    </div>
+    <div class="g-card chart-top" tabindex="0">
+      <div class="g-head" style="background:var(--chartreuse);"><div class="num">03</div><h3>Environment</h3></div>
+      <div class="g-body">Ensure physical, sensory, and social spaces are accessible and safe.
+        <ul><li>Clear paths and seating.</li><li>Lighting and signage.</li><li>Quiet space if needed.</li></ul>
+      </div>
+      <div class="g-detail">The environment includes physical space, lighting, noise, signage, temperature, and social atmosphere. Many barriers are environmental and can be addressed without waiting for a request.</div>
+    </div>
+    <div class="g-card red-top" tabindex="0">
+      <div class="g-head" style="background:var(--red);"><div class="num">04</div><h3>Response</h3></div>
+      <div class="g-body">Take timely, respectful action to remove barriers.
+        <ul><li>Offer — don't impose — help.</li><li>Confirm what worked.</li><li>Update the chart or note.</li></ul>
+      </div>
+      <div class="g-detail">Response means acting on what you have noticed and heard. Offer support without imposing it. After, confirm the outcome and close the loop.</div>
+    </div>
+  </div>
+  <div class="summary-bar" style="margin-top:20px;">
+    <div class="lbl">SERIES FRAMEWORK</div>
+    <p>This model will appear in every guide in this series. The four areas work together — you might notice a barrier (awareness), ask the person how to help (communication), adjust the space (environment), and follow up (response).</p>
+  </div>
+<div class="slide-footer">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(8 - 1)">‹</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">8 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(8 + 1)">›</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 9: 1.6 Accessibility Decision Path ═══════ -->
+<section class="slide" data-slide="9">
+<div class="topbar">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+  <div class="brand">
+    <img class="logo" src="assets/uhn-logo.png" alt="UHN">
+    <div class="sep" aria-hidden="true"></div>
+    <div class="ctx">ACCESSIBILITY FIRST</div>
+  </div>
+  <div class="crumbs">Guide 01 · Foundations › <b>Decision Path</b></div>
+</div>
+  <div class="title-block">
+    <div class="eyebrow">SCREEN 1.6 · FRAMEWORK — 5 STEPS</div>
+    <h1>The Accessibility <span class="accent">Decision Path</span></h1>
+    <div class="lede">When an accessibility question comes up — and it will — you need a practical approach. Click each step to explore.</div>
+  </div>
+  <div class="stepper">
+    <div class="stepper-rail" style="grid-template-columns:repeat(5,1fr);" role="list" aria-label="Accessibility Decision Path steps">
+      <div class="step active" role="listitem" aria-current="step" tabindex="0">
+        <div class="circle">1</div>
+        <div class="label">Pause &amp; Assess</div>
+        <div class="desc">Recognize the need</div>
+      </div>
+      <div class="step" role="listitem" tabindex="0">
+        <div class="circle">2</div>
+        <div class="label">Listen &amp; Ask</div>
+        <div class="desc">Engage respectfully</div>
+      </div>
+      <div class="step" role="listitem" tabindex="0">
+        <div class="circle">3</div>
+        <div class="label">Apply</div>
+        <div class="desc">Use AiP principles</div>
+      </div>
+      <div class="step" role="listitem" tabindex="0">
+        <div class="circle">4</div>
+        <div class="label">Adapt</div>
+        <div class="desc">Adjust as needed</div>
+      </div>
+      <div class="step" role="listitem" tabindex="0">
+        <div class="circle">5</div>
+        <div class="label">Seek Support</div>
+        <div class="desc">Consult resources</div>
+      </div>
+    </div>
+  </div>
+  <div class="step-detail">
+    <div class="marker">STEP<b>01</b></div>
+    <div class="content">
+      <h3>Pause and Assess</h3>
+      <p>Before you act, take a moment. Is there an accessibility need here? Don't assume — observe.</p>
+    </div>
+  </div>
+  <div class="summary-bar" style="margin-top:20px;">
+    <div class="lbl">SERIES TOOL</div>
+    <p>This path isn't a one-time checklist. It's a way of thinking. You'll see it in every guide in this series, applied to different situations and different types of disability.</p>
+  </div>
+<div class="slide-footer">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(9 - 1)">‹</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">9 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(9 + 1)">›</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 10: 1.7 Scenario 1 — Hospital Booking System ═══════ -->
+<section class="slide" data-slide="10">
+<div class="topbar">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+  <div class="brand">
+    <img class="logo" src="assets/uhn-logo.png" alt="UHN">
+    <div class="sep" aria-hidden="true"></div>
+    <div class="ctx">ACCESSIBILITY FIRST</div>
+  </div>
+  <div class="crumbs">Guide 01 · Foundations › <b>Scenario 1 — Hospital Booking System</b></div>
+</div>
+  <div class="title-block">
+    <div class="eyebrow">SCREEN 1.7 · SCENARIO</div>
+    <h1>Scenario 1: Hospital <span class="accent">Booking System</span></h1>
+  </div>
+  <div class="scen-grid">
+    <div class="photo has-img" style="height:560px;">
+      <img src="media/images/g01-scenario-booking-01.png" alt="An older woman at a hospital reception desk speaking with a receptionist about booking difficulties.">
+      <div class="feedback-overlay" aria-live="polite" id="fb-s1">
+        <button class="close-btn" onclick="this.parentElement.classList.remove('show')" aria-label="Close feedback">CLOSE</button>
+        <div class="fb-content"></div>
+        <div class="debrief-section">
+          <div class="lbl">DEBRIEF</div>
+          <p>Accessibility includes usability. Meeting technical standards is not enough. Offer multiple options and report barriers upstream.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="format-badge">Branching choice · 3 options · graded</div>
+      <div class="scenario-box">
+        <div class="lbl">SCENARIO 1</div>
+        <h2>Mrs. Okafor's Booking Difficulty</h2>
+        <p>You're working at the front desk when Mrs. Okafor, a 68-year-old patient, arrives looking frustrated. She explains that she tried to use the new online booking system but couldn't navigate it. The system meets accessibility standards, but she has limited digital literacy and finds it confusing. She's been trying for three days and finally came in person.</p>
+      </div>
+      <div class="scenario-q" style="margin-top:18px;">What do you do?</div>
+      <div class="options" role="radiogroup" data-correct="A" data-overlay="fb-s1">
+        <div class="option" role="radio" aria-checked="false" tabindex="0" data-choice="A" data-fb="<b>Best response: A.</b> Mrs. Okafor feels heard. She gets her appointment. The barrier is flagged for system improvement.">
+          <div class="ltr">A</div>
+          <div>You apologize for the difficulty, book her appointment right away, and let her know she can always call or come in person. You note the issue for your team lead.</div>
+        </div>
+        <div class="option" role="radio" aria-checked="false" tabindex="0" data-choice="B" data-fb="<b>Acceptable, but not best.</b> She gets her appointment but feels the problem is hers to solve. The systemic issue goes unreported.">
+          <div class="ltr">B</div>
+          <div>You book her appointment and suggest she ask a family member to help next time.</div>
+        </div>
+        <div class="option" role="radio" aria-checked="false" tabindex="0" data-choice="C" data-fb="<b>Poor response.</b> She feels dismissed. &quot;Accessible&quot; and &quot;usable&quot; are not the same. The barrier remains.">
+          <div class="ltr">C</div>
+          <div>You tell her the system is accessible and offer to walk her through it on your computer.</div>
+        </div>
+      </div>
+      <button class="submit-btn" disabled>CONFIRM CHOICE</button>
+    </div>
+  </div>
+<div class="slide-footer">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(10 - 1)">‹</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">10 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(10 + 1)">›</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 11: 1.8 Scenario 2 — Clinic Signage ═══════ -->
+<section class="slide" data-slide="11">
+<div class="topbar">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+  <div class="brand">
+    <img class="logo" src="assets/uhn-logo.png" alt="UHN">
+    <div class="sep" aria-hidden="true"></div>
+    <div class="ctx">ACCESSIBILITY FIRST</div>
+  </div>
+  <div class="crumbs">Guide 01 · Foundations › <b>Scenario 2 — Clinic Signage</b></div>
+</div>
+  <div class="title-block">
+    <div class="eyebrow">SCREEN 1.8 · SCENARIO</div>
+    <h1>Scenario 2: Clinic <span class="accent">Signage</span></h1>
+  </div>
+  <div class="scen-grid">
+    <div class="photo has-img" style="height:560px;">
+      <img src="media/images/g01-scenario-signage-01.png" alt="An elderly woman using a magnifying glass to read a small directional sign on a hospital corridor wall.">
+      <div class="feedback-overlay" aria-live="polite" id="fb-s2">
+        <button class="close-btn" onclick="this.parentElement.classList.remove('show')" aria-label="Close feedback">CLOSE</button>
+        <div class="fb-content"></div>
+        <div class="debrief-section">
+          <div class="lbl">DEBRIEF</div>
+          <p>Meeting technical standards doesn't guarantee practical accessibility. Consider accessibility from the user's perspective. Report barriers — don't just work around them.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="format-badge">Branching choice · 3 options · graded</div>
+      <div class="scenario-box">
+        <div class="lbl">SCENARIO 2</div>
+        <h2>Patient with Low Vision</h2>
+        <p>You notice a patient with low vision squinting at a directional sign in the outpatient clinic. The sign was recently installed and meets Ontario Building Code standards, but the font is small and it's mounted high on the wall. The patient asks you for directions to the lab.</p>
+      </div>
+      <div class="scenario-q" style="margin-top:18px;">What do you do?</div>
+      <div class="options" role="radiogroup" data-correct="A" data-overlay="fb-s2">
+        <div class="option" role="radio" aria-checked="false" tabindex="0" data-choice="A" data-fb="<b>Best response: A.</b> The patient gets where they need to go. You've addressed the immediate need and the systemic barrier.">
+          <div class="ltr">A</div>
+          <div>You walk the patient to the lab, then report the signage issue to facilities with a suggestion to add larger, lower signs with high-contrast text.</div>
+        </div>
+        <div class="option" role="radio" aria-checked="false" tabindex="0" data-choice="B" data-fb="<b>Acceptable, but not best.</b> The patient finds the lab, but the signage problem remains for the next person.">
+          <div class="ltr">B</div>
+          <div>You give clear verbal directions and offer to walk them partway.</div>
+        </div>
+        <div class="option" role="radio" aria-checked="false" tabindex="0" data-choice="C" data-fb="<b>Poor response.</b> The patient feels singled out. The barrier isn't addressed.">
+          <div class="ltr">C</div>
+          <div>You point to the sign and read it aloud.</div>
+        </div>
+      </div>
+      <button class="submit-btn" disabled>CONFIRM CHOICE</button>
+    </div>
+  </div>
+<div class="slide-footer">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(11 - 1)">‹</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">11 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(11 + 1)">›</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 12: 1.9 Scenario 3 — Employee Awareness ═══════ -->
+<section class="slide" data-slide="12">
+<div class="topbar">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+  <div class="brand">
+    <img class="logo" src="assets/uhn-logo.png" alt="UHN">
+    <div class="sep" aria-hidden="true"></div>
+    <div class="ctx">ACCESSIBILITY FIRST</div>
+  </div>
+  <div class="crumbs">Guide 01 · Foundations › <b>Scenario 3 — Employee Awareness</b></div>
+</div>
+  <div class="title-block">
+    <div class="eyebrow">SCREEN 1.9 · SCENARIO</div>
+    <h1>Scenario 3: Employee <span class="accent">Awareness</span></h1>
+  </div>
+  <div class="scen-grid">
+    <div class="photo has-img" style="height:560px;">
+      <img src="media/images/g01-scenario-checklist-01.png" alt="Three healthcare workers gathered around a tablet in a hospital break room, collaborating on a review.">
+      <div class="feedback-overlay" aria-live="polite" id="fb-s3">
+        <button class="close-btn" onclick="this.parentElement.classList.remove('show')" aria-label="Close feedback">CLOSE</button>
+        <div class="fb-content"></div>
+        <div class="debrief-section">
+          <div class="lbl">DEBRIEF</div>
+          <p>Accessibility requires awareness, curiosity, and flexibility beyond any checklist. Take time to listen, ask respectful questions, and adapt to individual needs.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="format-badge">Branching choice · 3 options · graded</div>
+      <div class="scenario-box">
+        <div class="lbl">SCENARIO 3</div>
+        <h2>Checklist Discussion</h2>
+        <p>Your team uses an accessibility checklist when supporting patients. A colleague mentions that a patient who speaks Cantonese and has a cognitive disability seemed confused during intake, even though the checklist was completed. Your colleague says, "We followed the checklist — I'm not sure what else we can do."</p>
+      </div>
+      <div class="scenario-q" style="margin-top:18px;">What do you do?</div>
+      <div class="options" role="radiogroup" data-correct="A" data-overlay="fb-s3">
+        <div class="option" role="radio" aria-checked="false" tabindex="0" data-choice="A" data-fb="<b>Best response: A.</b> The team begins to see accessibility as more than a checklist. They plan to involve interpretation services and simplify intake materials.">
+          <div class="ltr">A</div>
+          <div>You acknowledge the checklist is a starting point but suggest the team explore what barriers the patient actually experienced — language support, cognitive load, cultural context — and adapt the process.</div>
+        </div>
+        <div class="option" role="radio" aria-checked="false" tabindex="0" data-choice="B" data-fb="<b>Acceptable, but not best.</b> One barrier is addressed, but the cognitive and cultural dimensions are still missed.">
+          <div class="ltr">B</div>
+          <div>You suggest requesting an interpreter for next time.</div>
+        </div>
+        <div class="option" role="radio" aria-checked="false" tabindex="0" data-choice="C" data-fb="<b>Poor response.</b> The patient's experience doesn't improve. The team misses a learning opportunity.">
+          <div class="ltr">C</div>
+          <div>You agree the checklist was completed and move on.</div>
+        </div>
+      </div>
+      <button class="submit-btn" disabled>CONFIRM CHOICE</button>
+    </div>
+  </div>
+<div class="slide-footer">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(12 - 1)">‹</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">12 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(12 + 1)">›</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 13: 1.10 Knowledge Check 1 ═══════ -->
+<section class="slide" data-slide="13">
+<div class="topbar">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+  <div class="brand">
+    <img class="logo" src="assets/uhn-logo.png" alt="UHN">
+    <div class="sep" aria-hidden="true"></div>
+    <div class="ctx">ACCESSIBILITY FIRST</div>
+  </div>
+  <div class="crumbs">Guide 01 · Foundations › <b>Knowledge Check 1</b></div>
+</div>
+  <div class="title-block">
+    <div class="eyebrow">SCREEN 1.10 · ASSESSMENT</div>
+    <h1>Knowledge Check <span class="accent">1</span></h1>
+    <div class="lede">Two questions. Select the best answer for each.</div>
+  </div>
+  <div class="kc-grid" style="padding:24px 96px 0;">
+    <div class="kc-question">
+      <div class="lbl">QUESTION</div>
+      <h2>Which model of disability focuses on removing barriers in the environment rather than fixing the individual?</h2>
+      <div class="kc-options" role="radiogroup" data-correct="B" data-qnum="kc1-1">
+        <div class="kc-opt" role="radio" aria-checked="false" tabindex="0" data-answer="A">
+          <div class="ltr">A</div>
+          <span>Medical model</span>
+          <span class="mark">INCORRECT</span>
+        </div>
+        <div class="kc-opt" role="radio" aria-checked="false" tabindex="0" data-answer="B">
+          <div class="ltr">B</div>
+          <span>Social model</span>
+          <span class="mark">CORRECT</span>
+        </div>
+        <div class="kc-opt" role="radio" aria-checked="false" tabindex="0" data-answer="C">
+          <div class="ltr">C</div>
+          <span>Charity model</span>
+          <span class="mark">INCORRECT</span>
+        </div>
+        <div class="kc-opt" role="radio" aria-checked="false" tabindex="0" data-answer="D">
+          <div class="ltr">D</div>
+          <span>Rights-based model</span>
+          <span class="mark">INCORRECT</span>
+        </div>
+      </div>
+      <button class="submit-btn" disabled>SUBMIT ANSWER</button>
+    </div>
+    <div class="kc-feedback hidden" aria-live="polite" id="kc1q1Feedback">
+      <div class="head"><div class="icon">✓</div>Feedback</div>
+      <div class="body">
+        <p><b>Correct answer: B.</b> The social model focuses on barriers in systems and environments, not individual deficits.</p>
+        <p>The social model says people are disabled by barriers in society — stairs instead of ramps, information only in print, attitudes that exclude.</p>
+      </div>
+    </div>
+  </div>
+<div class="slide-footer">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(13 - 1)">‹</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">13 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(13 + 1)">›</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 14: 1.10b Knowledge Check 1 — Q2 ═══════ -->
+<section class="slide" data-slide="14">
+<div class="topbar">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+  <div class="brand">
+    <img class="logo" src="assets/uhn-logo.png" alt="UHN Logo">
+    <div class="sep" aria-hidden="true"></div>
+    <div class="ctx">ACCESSIBILITY FIRST</div>
+  </div>
+  <div class="crumbs">Guide 01 · Foundations › <b>Knowledge Check 2</b></div>
+</div>
+  <div class="title-block">
+    <div class="eyebrow">SCREEN 1.11 · ASSESSMENT</div>
+    <h1>Knowledge Check <span class="accent">2</span></h1>
+  </div>
+  <div class="kc-grid" style="padding:24px 96px 0;">
+    <div class="kc-question">
+      <div class="lbl">QUESTION</div>
+      <h2>Under the AODA, which of the following is an obligation for Ontario public sector organizations like UHN?</h2>
+      <div class="kc-options" role="radiogroup" data-correct="A" data-qnum="kc1-2">
+        <div class="kc-opt" role="radio" aria-checked="false" tabindex="0" data-answer="A">
+          <div class="ltr">A</div>
+          <span>Provide disability awareness training to all staff</span>
+          <span class="mark">CORRECT</span>
+        </div>
+        <div class="kc-opt" role="radio" aria-checked="false" tabindex="0" data-answer="B">
+          <div class="ltr">B</div>
+          <span>Hire a minimum percentage of employees with disabilities</span>
+          <span class="mark">INCORRECT</span>
+        </div>
+        <div class="kc-opt" role="radio" aria-checked="false" tabindex="0" data-answer="C">
+          <div class="ltr">C</div>
+          <span>Eliminate all physical barriers within 5 years</span>
+          <span class="mark">INCORRECT</span>
+        </div>
+        <div class="kc-opt" role="radio" aria-checked="false" tabindex="0" data-answer="D">
+          <div class="ltr">D</div>
+          <span>Assign a dedicated accessibility officer</span>
+          <span class="mark">INCORRECT</span>
+        </div>
+      </div>
+      <button class="submit-btn" disabled>SUBMIT ANSWER</button>
+    </div>
+    <div class="kc-feedback hidden" aria-live="polite" id="kc1q2Feedback">
+      <div class="head"><div class="icon">✓</div>Feedback</div>
+      <div class="body">
+        <p><b>Correct answer: A.</b> Under the AODA, public sector organizations must provide accessibility training to all employees and volunteers.</p>
+        <p>The other options are not specific AODA requirements, though they may be good practices.</p>
+      </div>
+    </div>
+  </div>
+<div class="slide-footer">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(14 - 1)">‹</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">14 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(14 + 1)">›</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 16: 1.11 Knowledge Check 2 ═══════ -->
+<section class="slide" data-slide="15">
+<div class="topbar">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+  <div class="brand">
+    <img class="logo" src="assets/uhn-logo.png" alt="UHN">
+    <div class="sep" aria-hidden="true"></div>
+    <div class="ctx">ACCESSIBILITY FIRST</div>
+  </div>
+  <div class="crumbs">Guide 01 · Foundations › <b>Knowledge Check 3</b></div>
+</div>
+  <div class="title-block">
+    <div class="eyebrow">SCREEN 1.12 · ASSESSMENT</div>
+    <h1>Knowledge Check <span class="accent">3</span></h1>
+    <div class="lede">One scenario-based question.</div>
+  </div>
+  <div class="kc-grid" style="padding:24px 96px 0;">
+    <div class="kc-question">
+      <div class="lbl">SCENARIO-BASED QUESTION</div>
+      <h2>A patient arrives at your unit using a power wheelchair. You notice the examination room door is too narrow for the chair. What is the BEST first step?</h2>
+      <div class="kc-options" role="radiogroup" data-correct="B" data-qnum="kc2-1">
+        <div class="kc-opt" role="radio" aria-checked="false" tabindex="0" data-answer="A">
+          <div class="ltr">A</div>
+          <span>Ask the patient to transfer to a standard chair</span>
+          <span class="mark">INCORRECT</span>
+        </div>
+        <div class="kc-opt" role="radio" aria-checked="false" tabindex="0" data-answer="B">
+          <div class="ltr">B</div>
+          <span>Find an accessible room and apologize for the inconvenience</span>
+          <span class="mark">CORRECT</span>
+        </div>
+        <div class="kc-opt" role="radio" aria-checked="false" tabindex="0" data-answer="C">
+          <div class="ltr">C</div>
+          <span>Call maintenance to widen the door</span>
+          <span class="mark">INCORRECT</span>
+        </div>
+        <div class="kc-opt" role="radio" aria-checked="false" tabindex="0" data-answer="D">
+          <div class="ltr">D</div>
+          <span>Document the issue and continue with the scheduled room</span>
+          <span class="mark">INCORRECT</span>
+        </div>
+      </div>
+      <button class="submit-btn" disabled>SUBMIT ANSWER</button>
+    </div>
+    <div class="kc-feedback hidden" aria-live="polite" id="kc2Feedback">
+      <div class="head"><div class="icon">✓</div>Feedback</div>
+      <div class="body">
+        <p><b>Correct answer: B.</b> Address the immediate need first — find an accessible room. Then report the barrier for systemic fix.</p>
+        <p>Consider the Accessibility Decision Path — first address the person's immediate need (Pause and Assess), then seek support for systemic improvement.</p>
+      </div>
+    </div>
+  </div>
+<div class="slide-footer">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(15 - 1)">‹</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">15 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(15 + 1)">›</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 16: 1.12 Inclusive Practice Tips ═══════ -->
+<section class="slide" data-slide="16">
+<div class="topbar">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+  <div class="brand">
+    <img class="logo" src="assets/uhn-logo.png" alt="UHN">
+    <div class="sep" aria-hidden="true"></div>
+    <div class="ctx">ACCESSIBILITY FIRST</div>
+  </div>
+  <div class="crumbs">Guide 01 · Foundations › <b>Inclusive Practice Tips</b></div>
+</div>
+  <div class="title-block">
+    <div class="eyebrow">SCREEN 1.12 · PRACTICE</div>
+    <h1>Five Inclusive Practice <span class="accent">Tips</span></h1>
+    <div class="lede">Five practices you can start using right away.</div>
+  </div>
+  <div class="card-grid" style="grid-template-columns:repeat(5,1fr); padding-top:28px;">
+    <div class="g-card red-top" tabindex="0">
+      <div class="g-head" style="background:var(--red);"><div class="num">1</div><h3>Ask First</h3></div>
+      <div class="g-body">Ask before helping. Offer assistance but respect the person's choice.</div>
+    </div>
+    <div class="g-card navy-top" tabindex="0">
+      <div class="g-head"><div class="num">2</div><h3>Language</h3></div>
+      <div class="g-body">Use people-first language unless the person prefers identity-first. Ask.</div>
+    </div>
+    <div class="g-card cobalt-top" tabindex="0">
+      <div class="g-head" style="background:var(--cobalt);"><div class="num">3</div><h3>Don't Assume</h3></div>
+      <div class="g-body">Don't assume what someone can or can't do based on visible cues.</div>
+    </div>
+    <div class="g-card chart-top" tabindex="0">
+      <div class="g-head" style="background:var(--chartreuse);"><div class="num">4</div><h3>Multiple Options</h3></div>
+      <div class="g-body">Offer multiple ways to access services — phone, in-person, online.</div>
+    </div>
+    <div class="g-card lilac-top" tabindex="0">
+      <div class="g-head" style="background:var(--lilac);"><div class="num">5</div><h3>Report Barriers</h3></div>
+      <div class="g-body">Report barriers. Don't just work around them — flag them for systemic improvement.</div>
+    </div>
+  </div>
+<div class="slide-footer">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(16 - 1)">‹</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">16 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(16 + 1)">›</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 17: 1.13 Reflection Prompt ═══════ -->
+<section class="slide" data-slide="17">
+<div class="topbar">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+  <div class="brand">
+    <img class="logo" src="assets/uhn-logo.png" alt="UHN">
+    <div class="sep" aria-hidden="true"></div>
+    <div class="ctx">ACCESSIBILITY FIRST</div>
+  </div>
+  <div class="crumbs">Guide 01 · Foundations › <b>Reflection</b></div>
+</div>
+  <div class="title-block">
+    <div class="eyebrow">SCREEN 1.13 · REFLECTION</div>
+    <h1>Pause and <span class="accent">Reflect</span></h1>
+  </div>
+  <div style="padding:24px 96px 0; display:grid; grid-template-columns:1.1fr 1fr; gap:48px;">
+    <div>
+      <div class="photo has-img" style="height:520px;"><img src="media/images/g01-reflection-01.png" alt="A healthcare worker sitting thoughtfully at a desk by a window during a break, looking at a laptop in a quiet moment of reflection."></div>
+      <div style="margin-top:18px; padding:14px 18px; background:var(--neutral-2); border:1px solid var(--neutral); font-size:16px; color:var(--muted); font-style:italic;">
+        This reflection is private — it is not submitted or reviewed.
+      </div>
+      <button id="submitReflectionBtn" style="margin-top:18px; background:var(--red); color:#fff; font-family:var(--font-head); font-size:18px; padding:14px 28px; border:0; letter-spacing:2px; cursor:pointer; display:inline-flex; align-items:center; gap:10px;">SUBMIT REFLECTION<span style="font-size:24px;">›</span></button>
+    </div>
+    <div>
+      <div class="scenario-box" style="border-left-color:var(--lilac);">
+        <div class="lbl" style="color:var(--lilac);">REFLECTION PROMPT</div>
+        <h2 style="font-size:26px; line-height:1.3;">Think about a recent interaction at work. Was there a moment where accessibility could have been handled differently? What would you change?</h2>
+      </div>
+      <div class="map-field" style="margin-top:24px; border-color:var(--lilac);">
+        <div class="head"><div class="badge" style="background:var(--lilac);">YOUR THOUGHTS</div></div>
+        <div class="input" contenteditable="true" style="min-height:180px;">Type your reflection here...</div>
+      </div>
+    </div>
+  </div>
+<div class="slide-footer">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(17 - 1)">‹</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">17 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(17 + 1)">›</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 18: 1.14 MAP Action Planning ═══════ -->
+<section class="slide" data-slide="18">
+<div class="topbar">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+  <div class="brand">
+    <img class="logo" src="assets/uhn-logo.png" alt="UHN">
+    <div class="sep" aria-hidden="true"></div>
+    <div class="ctx">ACCESSIBILITY FIRST</div>
+  </div>
+  <div class="crumbs">Guide 01 · Foundations › <b>My Action Plan</b></div>
+</div>
+  <div class="title-block">
+    <div class="eyebrow">SCREEN 1.14 · ACTION</div>
+    <h1>My Action Plan <span class="accent">(MAP)</span></h1>
+    <div class="lede">Three prompts — Stop, Start, Continue. Completing at least one field is required for course completion.</div>
+  </div>
+  <div class="map-grid">
+    <div class="map-intro">
+      <div class="format-badge">Form layout · 3 inputs · downloadable PDF</div>
+      <div class="map-fields">
+        <div class="map-field">
+          <div class="head"><div class="badge">STOP</div><h3>One thing I will stop doing</h3></div>
+          <div class="input" contenteditable="true">Type your response here...</div>
+        </div>
+        <div class="map-field">
+          <div class="head"><div class="badge">START</div><h3>One thing I will start doing</h3></div>
+          <div class="input" contenteditable="true">Type your response here...</div>
+        </div>
+        <div class="map-field">
+          <div class="head"><div class="badge" style="background:var(--chartreuse);">CONT.</div><h3>One thing I will continue doing</h3></div>
+          <div class="input" contenteditable="true">Type your response here... (optional)</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="key-takeaway" style="border-left-color:var(--lilac); background:var(--lilac-bg);">
+        <div class="lbl" style="color:var(--lilac);">DOWNLOAD</div>
+        <p>MAP-Template-Guide-01.pdf — download and keep your action plan.</p>
+      </div>
+      <button class="map-save-btn" style="margin-top:24px; background:var(--red); color:#fff; font-family:var(--font-head); font-size:18px; padding:14px 28px; border:0; letter-spacing:2px; cursor:pointer; display:inline-flex; align-items:center; gap:10px;">SAVE MY MAP<span style="font-size:24px;">›</span></button>
+      <div class="map-save-hint" style="margin-top:10px; font-size:14px; color:var(--muted); font-style:italic;">You can download your Action Plan after completing this course.</div>
+    </div>
+  </div>
+<div class="slide-footer">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(18 - 1)">‹</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">18 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(18 + 1)">›</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 19: 1.15 Key Takeaways ═══════ -->
+<section class="slide" data-slide="19">
+<div class="topbar">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+  <div class="brand">
+    <img class="logo" src="assets/uhn-logo.png" alt="UHN">
+    <div class="sep" aria-hidden="true"></div>
+    <div class="ctx">ACCESSIBILITY FIRST</div>
+  </div>
+  <div class="crumbs">Guide 01 · Foundations › <b>Key Takeaways</b></div>
+</div>
+  <div class="title-block">
+    <div class="eyebrow">SCREEN 1.15 · SUMMARY</div>
+    <h1>Key <span class="accent">Takeaways</span></h1>
+    <div class="lede">Four things to remember from this guide.</div>
+  </div>
+  <div class="card-grid" style="grid-template-columns:repeat(2,1fr); padding-top:32px;">
+    <div class="g-card red-top" tabindex="0">
+      <div class="g-head" style="background:var(--red);"><div class="num">1</div><h3>Beyond Physical Barriers</h3></div>
+      <div class="g-body" style="font-size:22px;">Accessibility goes beyond physical barriers — it includes attitudes, systems, communication, digital tools, and policies.</div>
+    </div>
+    <div class="g-card cobalt-top" tabindex="0">
+      <div class="g-head" style="background:var(--cobalt);"><div class="num">2</div><h3>Remove Barriers, Not Fix People</h3></div>
+      <div class="g-body" style="font-size:22px;">The social and rights-based models focus on removing barriers, not fixing people.</div>
+    </div>
+    <div class="g-card chart-top" tabindex="0">
+      <div class="g-head" style="background:var(--chartreuse);"><div class="num">3</div><h3>Decision Path</h3></div>
+      <div class="g-body" style="font-size:22px;">The Accessibility Decision Path (Pause → Listen → Apply → Adapt → Seek Support) gives you a practical tool for any situation.</div>
+    </div>
+    <div class="g-card navy-top" tabindex="0">
+      <div class="g-head"><div class="num">4</div><h3>Everyone's Responsibility</h3></div>
+      <div class="g-body" style="font-size:22px;">Accessibility is everyone's responsibility at UHN — not just one department.</div>
+    </div>
+  </div>
+<div class="slide-footer">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(19 - 1)">‹</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">19 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(19 + 1)">›</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 20: 1.16 Listen and Reflect (Podcast) ═══════ -->
+<section class="slide s-podcast" data-slide="20">
+  <div class="topbar" style="background:var(--navy-deep);">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+    <div class="brand">
+      <img class="logo" src="assets/uhn-logo.png" alt="UHN">
+      <div class="sep" aria-hidden="true"></div>
+      <div class="ctx">ACCESSIBILITY FIRST</div>
+    </div>
+    <div class="crumbs">Guide 01 · Foundations › <b>Listen and Reflect</b></div>
+  </div>
+  <div class="title-block" style="padding-top:108px;">
+    <div class="eyebrow" style="color:var(--lilac);">SCREEN 1.16 · PODCAST</div>
+    <h1 style="color:#fff;">Listen and <span style="color:var(--lilac);">Reflect</span></h1>
+  </div>
+  <div class="pod-grid">
+    <div class="pod-player">
+      <div class="pod-cover">
+        <div class="ep">EPISODE 01 OF 18 · FOUNDATIONS</div>
+        <div class="show">Five Words to Restore Patient Dignity</div>
+      </div>
+      <div class="pod-controls">
+        <div class="pod-meta">
+          <audio id="podAudio" preload="metadata"><source src="media/podcast/Five_words_to_restore_patient_dignity.m4a" type="audio/mp4"></audio>
+          <button class="pod-play" id="podPlayBtn" onclick="togglePod()" aria-label="Play or pause podcast">▶</button>
+          <div class="info">
+            <div class="ttl">Five Words to Restore Patient Dignity</div>
+            <div class="sub">Deep dive · 17:51 · Patient-advisor reflection</div>
+          </div>
+        </div>
+        <div class="pod-progress" onclick="seekPod(event)" style="cursor:pointer;"><div class="fill" id="podFill"></div></div>
+        <div style="display:flex; gap:18px; align-items:center;">
+          <span id="podTime" style="font-size:14px; color:#666; font-family:var(--font-body);">0:00 / 17:51</span>
+          <span style="font-size:14px; color:var(--cobalt); font-family:var(--font-head); cursor:pointer;" onclick="document.getElementById('podTranscript').style.display = document.getElementById('podTranscript').style.display === 'none' ? 'block' : 'none'">TRANSCRIPT ▾</span>
+          <span style="font-size:14px; color:var(--muted); margin-left:auto;">SRT captions available</span>
+        </div>
+      </div>
+    </div>
+    <div class="pod-side">
+      <div class="pod-points">
+        <div class="lbl">KEY LISTENING POINTS</div>
+        <h3>What to listen for</h3>
+        <ul>
+          <li><span class="tc" style="cursor:pointer" onclick="seekTo(0)">0:00</span> $50M wing vs 30 seconds at the front desk</li>
+          <li><span class="tc" style="cursor:pointer" onclick="seekTo(156)">2:36</span> The 30-second intake test</li>
+          <li><span class="tc" style="cursor:pointer" onclick="seekTo(532)">8:52</span> Five words: "What works best for you?"</li>
+          <li><span class="tc" style="cursor:pointer" onclick="seekTo(842)">14:02</span> One sentence for a busy shift</li>
+          <li><span class="tc" style="cursor:pointer" onclick="seekTo(1000)">16:40</span> Where are you defaulting to the fastest path?</li>
+        </ul>
+      </div>
+      <div class="pod-reflection">
+        <div class="lbl">REFLECTION</div>
+        <p>Think of one patient interaction this week. Which moment would have shifted if you had paused to ask, before you acted?</p>
+      </div>
+    </div>
+  </div>
+  <!-- Transcript panel -->
+  <div id="podTranscript" style="display:none; position:absolute; left:64px; right:64px; top:520px; bottom:80px; background:rgba(15,26,61,0.97); border:1px solid rgba(255,255,255,0.15); border-radius:4px; padding:28px 32px; overflow-y:auto; z-index:30;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
+      <span style="font-family:var(--font-head); font-size:16px; letter-spacing:3px; color:var(--cobalt); text-transform:uppercase;">Full Transcript</span>
+      <span style="font-size:14px; color:rgba(255,255,255,0.5); cursor:pointer;" onclick="this.parentElement.parentElement.style.display='none'">✕ CLOSE</span>
+    </div>
+    <div id="transcriptBody" style="font-size:15px; line-height:1.7; color:rgba(255,255,255,0.85);">
+      <p class="transcript-p" data-time="0" onclick="seekTo(0)"><b style="color:var(--lilac);">[0:00]</b> A hospital network can spend 50 million dollars on a new diagnostic wing. They can hire the absolute top specialists, deploy cutting-edge medical software. And yet — for a patient with a communication disability, the success or failure of their visit isn't determined by any of that. It's decided in the first 30 seconds at the front desk. And it costs absolutely zero dollars.</p>
+      <p class="transcript-p" data-time="61" onclick="seekTo(61)"><b style="color:var(--lilac);">[1:01]</b> Today, we're exploring a profound reflection on accessibility in healthcare, sourced directly from a patient named DK — a patient and family advisor at the University Health Network. DK has been coming to UHN for seven years, visiting four different sites for hundreds of appointments.</p>
+      <p class="transcript-p" data-time="120" onclick="seekTo(120)"><b style="color:var(--lilac);">[2:00]</b> DK uses a power chair and lives with a communication disability. Out of hundreds of visits, DK pinpoints their single best clinical experience in seven years — and it wasn't a groundbreaking therapy. It was a simple five-word question from a nurse.</p>
+      <p class="transcript-p" data-time="156" onclick="seekTo(156)"><b style="color:var(--lilac);">[2:36]</b> DK calls it the 30-second intake litmus test. The trajectory of the entire appointment is locked in during those first moments at the front desk. A successful intake: the desk staff looks up, makes eye contact, offers a calm "Hi, how can I help you?" When that happens, DK physically relaxes. A psychological safety net is instantly established.</p>
+      <p class="transcript-p" data-time="250" onclick="seekTo(250)"><b style="color:var(--lilac);">[4:10]</b> The bad intake: the staff member who doesn't look up, talks past DK to whoever they're with, or worst of all — reaches for the wheelchair handles without asking. For someone who uses a power chair, that equipment is an extension of their physical autonomy. Reaching for it without consent strips the patient of their agency.</p>
+      <p class="transcript-p" data-time="376" onclick="seekTo(376)"><b style="color:var(--lilac);">[6:16]</b> Thousands of intake interactions happen at UHN every day. Each one is a potential access point or failure point. When you're busy, you default to the fastest path — assuming what the patient needs instead of asking. But assuming is where dignity breaks down.</p>
+      <p class="transcript-p" data-time="532" onclick="seekTo(532)"><b style="color:var(--lilac);">[8:52]</b> The five-word antidote: One nurse, before adjusting anything — the bed, the gown, the blood pressure cuff — just said: "What works best for you?" Five words. Then she listened. She confirmed: "So you prefer the cuff on your left arm, and you'd rather stay in your chair for vitals — did I get that right?" That was the best clinical experience DK has ever had at UHN.</p>
+      <p class="transcript-p" data-time="687" onclick="seekTo(687)"><b style="color:var(--lilac);">[11:27]</b> The procedure was seamless because she established exactly what DK needed. The entire vitals process ran without a single moment of friction, confusion, or wasted energy.</p>
+      <p class="transcript-p" data-time="842" onclick="seekTo(842)"><b style="color:var(--lilac);">[14:02]</b> DK argues you don't need specialized training. You just need one sentence: "Is there anything I should know to make this easier for you?" That question actively dismantles the biggest assumption of all — that you already know what the patient needs.</p>
+      <p class="transcript-p" data-time="936" onclick="seekTo(936)"><b style="color:var(--lilac);">[15:36]</b> True accessibility and dignity do not begin when the medical procedure starts. They begin the second the patient crosses the threshold. The "fastest path" is a false efficiency — assuming what someone needs almost always takes longer when the assumption is wrong.</p>
+      <p class="transcript-p" data-time="1000" onclick="seekTo(1000)"><b style="color:var(--lilac);">[16:40]</b> Think about your own professional routine. Where are you defaulting to the fastest path? Where might a single unhurried question change the entire trajectory for someone in your care? Dignity starts before the appointment. It starts at the front desk. It starts with your tone of voice. And sometimes, it just starts with five simple words.</p>
+    </div>
+  </div>
+<div class="slide-footer dark">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(20 - 1)">‹</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">20 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(20 + 1)">›</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 21: 1.17 Decision Tree Activity ═══════ -->
+<section class="slide" data-slide="21">
+<div class="topbar">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+  <div class="brand">
+    <img class="logo" src="assets/uhn-logo.png" alt="UHN">
+    <div class="sep" aria-hidden="true"></div>
+    <div class="ctx">ACCESSIBILITY FIRST</div>
+  </div>
+  <div class="crumbs">Guide 01 · Foundations › <b>Decision Tree Activity</b></div>
+</div>
+  <div class="title-block">
+    <div class="eyebrow">SCREEN 1.17 · DECISION TREE</div>
+    <h1>Decision Tree: Intake Form <span class="accent">Frustration</span></h1>
+  </div>
+  <div class="scen-grid">
+    <div class="photo has-img" style="height:560px;">
+      <img src="media/images/g01-practice-tips-01.png" alt="A nurse at eye level beside a patient in a power wheelchair with a communication device, and a worker placing an accessible parking sign.">
+      <div class="feedback-overlay" aria-live="polite" id="fb-s4">
+        <button class="close-btn" onclick="this.parentElement.classList.remove('show')" aria-label="Close feedback">CLOSE</button>
+        <div class="fb-content"></div>
+        <div class="debrief-section">
+          <div class="lbl">DEBRIEF</div>
+          <p>Pausing and asking, before assuming, is the single behaviour that distinguishes accessible care from "trying our best."</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="format-badge">Decision tree · 3 choices · loops back to Decision Path</div>
+      <div class="scenario-box">
+        <div class="lbl">DECISION TREE</div>
+        <h2>Before You Assume the Cause</h2>
+        <p>The patient is frustrated trying to complete the intake form. You don't yet know whether the barrier is vision, language, digital access, cognitive load, or something else. The lobby is busy and three people are waiting behind them.</p>
+      </div>
+      <div class="scenario-q" style="margin-top:18px;">What do you do next, before assuming the cause?</div>
+      <div class="options" role="radiogroup" data-correct="B" data-overlay="fb-s4">
+        <div class="option" role="radio" aria-checked="false" tabindex="0" data-choice="A" data-fb="<b>Poor response.</b> The patient becomes more frustrated. The barrier is never identified. The visit starts with a feeling of being rushed and unseen.">
+          <div class="ltr">A</div>
+          <div>Continue with the standard intake process. Keep working through the form so the line keeps moving.</div>
+        </div>
+        <div class="option" role="radio" aria-checked="false" tabindex="0" data-choice="B" data-fb="<b>Best response: B.</b> The patient names the barrier. You act on what they actually need. This is Step 1 of the Decision Path — Pause and Assess.">
+          <div class="ltr">B</div>
+          <div>Pause and ask how to support the patient. "Is there anything I can do to make this form easier today?"</div>
+        </div>
+        <div class="option" role="radio" aria-checked="false" tabindex="0" data-choice="C" data-fb="<b>Acceptable, but not best.</b> The patient gets help, but you miss the learning opportunity. The barrier is addressed but not reported upstream.">
+          <div class="ltr">C</div>
+          <div>Ask another staff member to take over. Hand off to a colleague while you keep the queue moving.</div>
+        </div>
+      </div>
+      <button class="submit-btn" disabled>CONFIRM CHOICE</button>
+    </div>
+  </div>
+<div class="slide-footer">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(21 - 1)">‹</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">21 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(21 + 1)">›</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 22: 1.18 Series Progress Map ═══════ -->
+<section class="slide" data-slide="22">
+<div class="topbar">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+  <div class="brand">
+    <img class="logo" src="assets/uhn-logo.png" alt="UHN">
+    <div class="sep" aria-hidden="true"></div>
+    <div class="ctx">ACCESSIBILITY FIRST</div>
+  </div>
+  <div class="crumbs">Guide 01 · Foundations › <b>Series Progress Map</b></div>
+</div>
+  <div class="title-block">
+    <div class="eyebrow">SCREEN 1.18 · PROGRESS</div>
+    <h1>Accessibility First · A <span class="accent">Three-Stage Journey</span></h1>
+    <div class="lede">18 guides organized in three stages. Guides unlock by stage. Foundations opens everything else.</div>
+  </div>
+  <div class="card-grid" style="grid-template-columns:repeat(3,1fr); padding-top:32px; align-items:start;">
+    <div class="g-card red-top" tabindex="0">
+      <div class="g-head" style="background:var(--red); min-height:80px; display:flex; align-items:center;"><h3>Stage 1: Foundations</h3></div>
+      <div class="g-body">
+        <p><b>Guides 01–04</b> — Required first</p>
+        <div style="margin-top:14px; font-size:18px; line-height:2;">
+          <div><b style="color:var(--red);">● Guide 01</b> — Foundations (CURRENT)</div>
+          <div>○ <a href="#" style="color:var(--cobalt); text-decoration:underline;">Guide 02</a> — Perceptions, Attitudes &amp; Barriers</div>
+          <div style="color:var(--muted);">○ Guide 03 — Universal Design</div>
+          <div style="color:var(--muted);">○ Guide 04 — Communication</div>
+        </div>
+      </div>
+    </div>
+    <div class="g-card cobalt-top" tabindex="0" style="position:relative;">
+      <div class="g-head" style="background:var(--cobalt); min-height:80px; display:flex; align-items:center;"><h3>Stage 2: Understanding Disability Experiences</h3></div>
+      <div class="g-body">
+        <p><b>Guides 05–09</b> — Builds on Foundations</p>
+        <div style="margin-top:14px; font-size:18px; line-height:2; color:var(--muted);">
+          <div>○ Guide 05 — Physical Disabilities</div>
+          <div>○ Guide 06 — Sensory Disabilities</div>
+          <div>○ Guide 07 — Cognitive &amp; Intellectual</div>
+          <div>○ Guide 08 — Mental Health</div>
+          <div>○ Guide 09 — Invisible Disabilities</div>
+        </div>
+      </div>
+      <div style="position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(255,255,255,0.55); display:flex; align-items:center; justify-content:center; pointer-events:none;">
+        <svg width="40" height="52" viewBox="0 0 40 52" fill="none" style="opacity:0.35;" aria-hidden="true">
+          <rect x="4" y="22" width="32" height="26" rx="3" fill="#192858"/>
+          <path d="M12 22V14a8 8 0 1 1 16 0v8" stroke="#192858" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <circle cx="20" cy="36" r="3" fill="#fff"/>
+          <rect x="19" y="37" width="2" height="6" rx="1" fill="#fff"/>
+        </svg>
+      </div>
+    </div>
+    <div class="g-card chart-top" tabindex="0" style="position:relative;">
+      <div class="g-head" style="background:var(--chartreuse); min-height:80px; display:flex; align-items:center;"><h3>Stage 3: Applied Practice</h3></div>
+      <div class="g-body">
+        <p><b>Guides 10–18</b> — Unlock after Stages 1+2</p>
+        <div style="margin-top:14px; font-size:18px; line-height:2; color:var(--muted);">
+          <div>○ Guide 10 — Assistive Technology</div>
+          <div>○ Guide 11 — Digital Accessibility</div>
+          <div>○ Guide 12 — Employment &amp; Workplace</div>
+          <div>○ Guide 13 — Emergency Preparedness</div>
+          <div>○ Guides 14–18 — Specialized Contexts</div>
+        </div>
+      </div>
+      <div style="position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(255,255,255,0.55); display:flex; align-items:center; justify-content:center; pointer-events:none;">
+        <svg width="40" height="52" viewBox="0 0 40 52" fill="none" style="opacity:0.35;" aria-hidden="true">
+          <rect x="4" y="22" width="32" height="26" rx="3" fill="#192858"/>
+          <path d="M12 22V14a8 8 0 1 1 16 0v8" stroke="#192858" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <circle cx="20" cy="36" r="3" fill="#fff"/>
+          <rect x="19" y="37" width="2" height="6" rx="1" fill="#fff"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+<div class="slide-footer">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(22 - 1)">‹</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">22 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(22 + 1)">›</button>
+  </div>
+</div>
+</section><!-- ═══════ SLIDE 23: 1.19 Resources and Course Completion ═══════ -->
+<section class="slide" data-slide="23">
+<div class="topbar">
+  <button class="menu-btn" onclick="openMenu()" aria-label="Open course menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>MENU</button>
+  <div class="brand">
+    <img class="logo" src="assets/uhn-logo.png" alt="UHN">
+    <div class="sep" aria-hidden="true"></div>
+    <div class="ctx">ACCESSIBILITY FIRST</div>
+  </div>
+  <div class="crumbs">Guide 01 · Foundations › <b>Resources &amp; Completion</b></div>
+</div>
+  <div class="title-block">
+    <div class="eyebrow">SCREEN 1.19 · COMPLETION</div>
+    <h1>Resources & <span class="accent">Course Completion</span></h1>
+  </div>
+  <div style="padding:24px 96px 0; display:grid; grid-template-columns:1.1fr 1fr; gap:48px;">
+    <!-- LEFT COLUMN -->
+    <div>
+      <!-- Completion status (dynamic) -->
+      <div id="completionStatus" style="border-left:6px solid var(--chartreuse); background:var(--chartreuse-bg); padding:22px 28px; margin-bottom:24px;">
+        <div style="font-family:var(--font-head); font-size:16px; letter-spacing:3px; color:var(--chartreuse); text-transform:uppercase; margin-bottom:8px;">COMPLETION</div>
+        <div id="completionMessage" style="font-size:22px; color:var(--ink); line-height:1.4; font-weight:bold;">Checking completion status...</div>
+      </div>
+
+      <!-- Resources -->
+      <div class="ref-list" style="margin-bottom:24px;">
+        <div class="rl">RESOURCES</div>
+        <ul>
+          <li>AODA: ontario.ca/laws/statute/05a11</li>
+          <li>OHRC: ohrc.on.ca</li>
+          <li>UHN Accessibility Policy: [internal link]</li>
+          <li>UHN IDEAA Office: [internal contact]</li>
+        </ul>
+      </div>
+
+      <!-- Up Next + Buttons -->
+      <div style="background:var(--navy); color:#fff; padding:22px 28px; display:flex; align-items:center; justify-content:space-between; margin-bottom:24px;">
+        <div>
+          <div style="font-family:var(--font-head); font-size:12px; letter-spacing:3px; color:var(--lilac); text-transform:uppercase; margin-bottom:4px;">UP NEXT</div>
+          <div style="font-family:var(--font-head); font-size:22px;">Guide 02: Perceptions, Attitudes, and Barriers</div>
+        </div>
+      </div>
+
+      <!-- Action buttons row -->
+      <div style="display:flex; gap:14px; flex-wrap:wrap;">
+        <button id="retryQuizBtn" style="font-family:var(--font-head); font-size:16px; padding:14px 24px; border:0; letter-spacing:2px; cursor:pointer; background:var(--red); color:#fff;">RETRY QUIZ</button>
+        <button id="downloadMapBtn" style="font-family:var(--font-head); font-size:16px; padding:14px 24px; border:0; letter-spacing:2px; cursor:pointer; background:var(--cobalt); color:#fff;">ACTION PLAN</button>
+        <button id="exitCourseBtn" style="font-family:var(--font-head); font-size:16px; padding:14px 24px; border:2px solid var(--navy); letter-spacing:2px; cursor:pointer; background:transparent; color:var(--navy);">EXIT COURSE</button>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN: Badge -->
+    <div>
+      <div id="badgeContainer" style="border:2px solid var(--navy); padding:36px; text-align:center;">
+        <div style="font-family:var(--font-head); font-size:14px; letter-spacing:4px; color:var(--muted); text-transform:uppercase; margin-bottom:24px;">BADGE EARNED</div>
+        <div style="width:200px; height:200px; border-radius:50%; background:var(--navy); color:#fff; display:flex; align-items:center; justify-content:center; margin:0 auto; font-family:var(--font-head); font-size:22px; text-align:center; line-height:1.3; padding:20px; box-sizing:border-box;">Accessibility<br>First:<br>Foundations</div>
+        <div style="font-family:var(--font-head); font-size:22px; color:var(--navy); margin-top:20px;">Guide 01 Complete</div>
+        <div style="font-size:16px; color:var(--muted); margin-top:6px;">Foundations of Disability, Inclusion & Accessible Design</div>
+        <button id="downloadBadgeBtn" style="font-family:var(--font-head); font-size:16px; padding:14px 32px; border:0; letter-spacing:2px; cursor:pointer; background:var(--chartreuse); color:#fff; margin-top:20px;">DOWNLOAD BADGE</button>
+      </div>
+    </div>
+  </div>
+  <div id="resultsPageContainer" style="display:none;"></div>
+<div class="slide-footer">
+  <div class="left">
+    <div class="tag">GUIDE 01</div>
+    <div class="guide-label">FOUNDATIONS OF DISABILITY, INCLUSION &amp; ACCESSIBLE DESIGN</div>
+  </div>
+  <div class="slide-nav">
+    <button class="sn-btn prev" aria-label="Previous slide" onclick="goSlide(23 - 1)">‹</button>
+    <div class="sn-label"><span class="sn-lbl-k">SLIDE</span><span class="sn-lbl-v">23 / 23</span></div>
+    <button class="sn-btn next" aria-label="Next slide" onclick="goSlide(23 + 1)">›</button>
+  </div>
+</div>
+</section>
+
+
+
+<!-- Background Music -->
+<audio id="bgmAudio" loop preload="auto" src="media/bgm/Path_to_Wellness.mp3"></audio>
+
+<!-- Side Menu Panel -->
+<div class="side-menu-scrim" onclick="closeMenu()"></div>
+<nav class="side-menu" role="navigation" aria-label="Course navigation menu">
+  <div class="sm-head">
+    <div class="row">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <img src="assets/uhn-logo.png" alt="UHN" style="height:36px; width:auto;">
+        <div style="width:1px; height:26px; background:rgba(255,255,255,0.25);"></div>
+        <span style="font-family:var(--font-head); font-size:11px; letter-spacing:2px; color:rgba(255,255,255,0.85);">ACCESSIBILITY FIRST</span>
+      </div>
+      <button class="sm-close" onclick="closeMenu()" aria-label="Close course menu">✕</button>
+    </div>
+    <div style="margin-top:14px;">
+      <div class="sm-eyebrow">GUIDE 01 OF 18</div>
+      <div class="sm-title">Foundations of Disability, Inclusion &amp; Accessible Design</div>
+    </div>
+    <div class="sm-progress-row">
+      <div class="sm-progress"><div class="sm-progress-fill" style="width:0%"></div></div>
+      <span class="sm-progress-text">1 / 22</span>
+    </div>
+  </div>
+  <div class="sm-section">Course Screens</div>
+  <div class="sm-list"></div>
+  <div class="sm-foot">
+    <b>GUIDE 01 OF 18</b><br>
+    Foundations of Disability, Inclusion &amp; Accessible Design<br>
+    University Health Network · Toronto, Ontario
+  </div>
+</nav>
+
+<!-- VO Controls & CC Bar -->
+<button class="vo-show-btn" id="voShowBtn" title="Show audio controls" aria-label="Show audio controls"></button>
+<div class="vo-controls" id="voControls">
+  <button class="vo-btn" id="voPlayBtn" title="Play / Pause voiceover" aria-label="Play or pause voiceover">
+    <svg id="voPlayIcon" viewBox="0 0 24 24" aria-hidden="true"><polygon points="6,4 20,12 6,20"/></svg>
+    <svg id="voPauseIcon" viewBox="0 0 24 24" style="display:none" aria-hidden="true"><rect x="5" y="4" width="4" height="16"/><rect x="15" y="4" width="4" height="16"/></svg>
+  </button>
+  <div class="vo-vol-wrap">
+    <button class="vo-vol-btn" id="voVolBtn" title="Mute / Unmute" aria-label="Mute or unmute voiceover">
+      <svg id="voVolIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3z"/><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/><path d="M19 12c0 2.97-1.65 5.54-4 6.71v2.06c3.45-1.33 6-4.95 6-8.77s-2.55-7.44-6-8.77v2.06c2.35 1.17 4 3.74 4 6.71z"/></svg>
+      <svg id="voMuteIcon" viewBox="0 0 24 24" style="display:none" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3z"/><line x1="23" y1="9" x2="17" y2="15" stroke="#fff" stroke-width="2"/><line x1="17" y1="9" x2="23" y2="15" stroke="#fff" stroke-width="2"/></svg>
+    </button>
+    <div class="vo-vol-slider"><input type="range" id="voVolRange" min="0" max="100" value="80"></div>
+  </div>
+  <button class="vo-btn bgm-toggle muted" id="bgmToggle" title="Background Music" aria-label="Toggle background music">
+    <svg class="bgm-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55C7.79 13 6 14.79 6 17s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+    <svg class="bgm-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55C7.79 13 6 14.79 6 17s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" opacity="0.4"/><line x1="3" y1="3" x2="21" y2="21" stroke="#fff" stroke-width="2"/></svg>
+  </button>
+  <div class="vo-progress-wrap" id="voProgressWrap">
+    <div class="vo-progress-bg"><div class="vo-progress-fill" id="voProgressFill"></div></div>
+  </div>
+  <span class="vo-time" id="voTime">0:00 / 0:00</span>
+  <button class="vo-btn" id="voCCBtn" title="Toggle closed captions" aria-label="Toggle closed captions" style="font-family:var(--font-head);font-size:10px;letter-spacing:1px;color:#fff;width:auto;padding:0 8px;">CC</button>
+  <button class="vo-hide-btn" id="voHideBtn" title="Hide controls" aria-label="Hide audio controls">&times;</button>
+</div>
+<div class="cc-bar" id="ccBar" aria-live="polite" aria-atomic="true"></div>
+<audio id="voAudio" preload="auto"></audio>
+
+
+<!-- Screen reader announcements -->
+<div id="sr-announce" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+<script src="js/scormfunctions.js?v=3"></script>
+<script src="js/welcome-dialog.js?v=3"></script>
+<script src="js/navigation.js?v=3"></script>
+<script src="js/voiceover.js?v=3"></script>
+<script src="js/course-tracker.js?v=3"></script>
+<script src="js/bgm.js?v=3"></script>
+</body>
+</html>

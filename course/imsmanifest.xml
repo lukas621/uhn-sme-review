@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="UHN_AccessibilityFirst_Guide01"
+          version="5.0"
+          xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+          xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+                              http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd
+                              http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+  </metadata>
+
+  <organizations default="UHN_AF_G01_ORG">
+    <organization identifier="UHN_AF_G01_ORG">
+      <title>Accessibility First — Guide 01: Foundations of Disability, Inclusion &amp; Accessible Design</title>
+      <item identifier="UHN_AF_G01_ITEM_V5" identifierref="UHN_AF_G01_RES_V5" isvisible="true">
+        <title>Guide 01: Foundations of Disability, Inclusion &amp; Accessible Design</title>
+        <adlcp:masteryscore>80</adlcp:masteryscore>
+      </item>
+    </organization>
+  </organizations>
+
+  <resources>
+    <resource identifier="UHN_AF_G01_RES_V5"
+              type="webcontent"
+              adlcp:scormtype="sco"
+              href="index.html">
+      <file href="index.html"/>
+      <file href="css/course.css"/>
+      <file href="js/welcome-dialog.js"/>
+      <file href="js/navigation.js"/>
+      <file href="js/voiceover.js"/>
+      <file href="js/course-tracker.js"/>
+      <file href="js/bgm.js"/>
+      <file href="js/scormfunctions.js"/>
+      <file href="assets/uhn-logo.png"/>
+      <file href="assets/uhn-logo-dark.png"/>
+      <file href="assets/MAP-Template-Demo.html"/>
+      <file href="lms/goodbye.html"/>
+    </resource>
+  </resources>
+
+</manifest>

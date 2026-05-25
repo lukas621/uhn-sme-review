@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MAP Template — Guide 01 · Accessibility First</title>
+<style>
+  @page { size:letter; margin:0.5in 0.6in; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:Arial, Helvetica, sans-serif; color:#111; background:#e8e8e8; display:flex; justify-content:center; padding:32px; }
+
+  .page {
+    width:8.5in; background:#fff;
+    box-shadow:0 4px 24px rgba(0,0,0,0.12);
+  }
+
+  /* ── Header Band ── */
+  .header {
+    background:#192858; color:#fff; padding:20px 40px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .header-left { display:flex; align-items:center; gap:16px; }
+  .header-logo { font-family:"Arial Black", Arial, sans-serif; font-size:26px; letter-spacing:2px; }
+  .header-sep { width:1px; height:28px; background:rgba(255,255,255,0.3); }
+  .header-series { font-family:"Arial Black", Arial, sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.8); }
+  .header-right { text-align:right; font-size:10px; color:rgba(255,255,255,0.6); letter-spacing:1px; line-height:1.4; }
+
+  /* ── Accent Line ── */
+  .accent-line { height:4px; background:linear-gradient(to right, #C0233B 25%, #245BAA 25% 50%, #74AE54 50% 75%, #C48ABD 75%); }
+
+  /* ── Title Section ── */
+  .title-section { padding:22px 40px 14px; }
+  .eyebrow { font-family:"Arial Black", Arial, sans-serif; font-size:9px; letter-spacing:4px; text-transform:uppercase; color:#C0233B; margin-bottom:6px; }
+  .title-section h1 { font-family:"Arial Black", Arial, sans-serif; font-size:24px; color:#192858; line-height:1.15; margin-bottom:4px; }
+  .title-section h1 span { color:#C48ABD; }
+  .subtitle { font-size:11px; color:#5A5A5A; line-height:1.4; }
+
+  /* ── Info Bar ── */
+  .info-bar {
+    margin:0 40px; padding:12px 16px; background:#F7EDF5;
+    border-left:4px solid #C48ABD;
+    display:grid; grid-template-columns:1fr 1fr 0.7fr; gap:12px;
+    font-size:11px; color:#5A5A5A;
+  }
+  .info-bar .field-label { font-family:"Arial Black", Arial, sans-serif; font-size:9px; letter-spacing:2px; color:#192858; text-transform:uppercase; display:block; margin-bottom:2px; }
+  .info-bar .field-value { border-bottom:1px solid #C48ABD; min-height:20px; font-size:12px; color:#111; padding-bottom:2px; }
+
+  /* ── Instructions ── */
+  .instructions {
+    margin:12px 40px 0; padding:10px 16px;
+    background:#FAFAFA; border:1px solid #E4E4E4;
+    font-size:10px; color:#5A5A5A; line-height:1.5;
+  }
+  .instructions strong { color:#192858; }
+
+  /* ── MAP Fields ── */
+  .map-fields { padding:14px 40px 0; }
+
+  .map-field { border:2px solid #C48ABD; margin-bottom:12px; }
+  .map-field-header {
+    background:#C48ABD; color:#fff; padding:7px 14px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .map-field-header.stop { background:#C0233B; }
+  .map-field-header.start { background:#245BAA; }
+  .map-field-header.continue { background:#74AE54; }
+  .map-field.stop { border-color:#C0233B; }
+  .map-field.start { border-color:#245BAA; }
+  .map-field.continue { border-color:#74AE54; }
+
+  .map-field-header .badge {
+    font-family:"Arial Black", Arial, sans-serif; font-size:10px;
+    letter-spacing:3px; text-transform:uppercase;
+  }
+  .map-field-header h3 {
+    font-family:"Arial Black", Arial, sans-serif; font-size:13px; margin:0;
+  }
+  .map-field-body { padding:8px 14px 10px; }
+  .map-field-prompt { font-size:9px; color:#888; font-style:italic; margin-bottom:4px; }
+  .map-field-lines .line { border-bottom:1px solid #e0e0e0; height:22px; }
+  .map-field-lines .line:last-child { border-bottom:1px solid #bbb; }
+
+  /* ── Reference Section ── */
+  .reference-section { padding:12px 40px 0; }
+  .ref-card {
+    border:1px solid #E4E4E4; padding:12px 16px; background:#FAFAFA;
+  }
+  .ref-card .ref-title {
+    font-family:"Arial Black", Arial, sans-serif; font-size:9px;
+    letter-spacing:3px; text-transform:uppercase; color:#245BAA; margin-bottom:8px;
+  }
+  .ref-steps { display:flex; gap:4px; align-items:center; }
+  .ref-step {
+    flex:1; text-align:center; padding:6px 2px;
+    border:1px solid #E4E4E4; background:#fff; line-height:1.2;
+  }
+  .ref-step .num { font-family:"Arial Black", Arial, sans-serif; font-size:13px; color:#192858; display:block; }
+  .ref-step .name { font-family:"Arial Black", Arial, sans-serif; font-size:8px; color:#192858; letter-spacing:1px; text-transform:uppercase; }
+  .ref-step .desc { color:#888; font-size:7px; margin-top:1px; }
+  .ref-arrow { font-size:12px; color:#C0233B; flex-shrink:0; }
+
+  .aip-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:6px; margin-top:8px; }
+  .aip-card { border-top:3px solid #192858; border:1px solid #E4E4E4; border-top:3px solid #192858; padding:6px 8px; background:#fff; }
+  .aip-card .aip-name { font-family:"Arial Black", Arial, sans-serif; font-size:8px; color:#192858; letter-spacing:1px; text-transform:uppercase; margin-bottom:2px; }
+  .aip-card .aip-desc { font-size:8px; color:#888; line-height:1.3; }
+
+  /* ── Notes ── */
+  .notes-section { padding:10px 40px 0; }
+  .notes-title { font-family:"Arial Black", Arial, sans-serif; font-size:9px; letter-spacing:3px; text-transform:uppercase; color:#888; margin-bottom:4px; }
+  .notes-lines .line { border-bottom:1px dotted #ccc; height:20px; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top:10px; padding:10px 40px; background:#FAFAFA;
+    border-top:1px solid #E4E4E4;
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:8px; color:#999; letter-spacing:0.5px;
+  }
+  .footer .confidential {
+    font-family:"Arial Black", Arial, sans-serif; font-size:7px;
+    letter-spacing:2px; text-transform:uppercase; color:#C0233B;
+  }
+
+  @media print {
+    body { background:none !important; padding:0 !important; -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; color-adjust:exact !important; }
+    .page { box-shadow:none !important; width:100% !important; }
+    .no-print { display:none !important; }
+    /* Force all background colors to print */
+    .header { background:#192858 !important; -webkit-print-color-adjust:exact !important; }
+    .accent-line { background:linear-gradient(to right, #C0233B 25%, #245BAA 25% 50%, #74AE54 50% 75%, #C48ABD 75%) !important; -webkit-print-color-adjust:exact !important; }
+    .map-field-header.stop { background:#C0233B !important; -webkit-print-color-adjust:exact !important; }
+    .map-field-header.start { background:#245BAA !important; -webkit-print-color-adjust:exact !important; }
+    .map-field-header.continue { background:#74AE54 !important; -webkit-print-color-adjust:exact !important; }
+    .map-field.stop { border-color:#C0233B !important; }
+    .map-field.start { border-color:#245BAA !important; }
+    .map-field.continue { border-color:#74AE54 !important; }
+    .info-bar { background:#F7EDF5 !important; border-left-color:#C48ABD !important; -webkit-print-color-adjust:exact !important; }
+    .ref-card { background:#FAFAFA !important; -webkit-print-color-adjust:exact !important; }
+    .aip-card { border-top-color:#192858 !important; }
+    .footer { background:#FAFAFA !important; -webkit-print-color-adjust:exact !important; }
+    .eyebrow { color:#C0233B !important; }
+    .ref-arrow { color:#C0233B !important; }
+    .confidential { color:#C0233B !important; }
+    * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <div class="header-logo">UHN</div>
+      <div class="header-sep"></div>
+      <div class="header-series">Accessibility First</div>
+    </div>
+    <div class="header-right">
+      My Action Plan (MAP)<br>
+      Guide 01 of 18
+    </div>
+  </div>
+  <div class="accent-line"></div>
+
+  <!-- Title -->
+  <div class="title-section">
+    <div class="eyebrow">MY ACTION PLAN · GUIDE 01</div>
+    <h1>Foundations of Disability, Inclusion &amp; <span>Accessible Design</span></h1>
+    <p class="subtitle">Three commitments to carry into your next shift. This plan is private — not submitted or reviewed.</p>
+  </div>
+
+  <!-- Info Bar -->
+  <div class="info-bar">
+    <div>
+      <span class="field-label">Name</span>
+      <div class="field-value" id="printName"></div>
+    </div>
+    <div>
+      <span class="field-label">Role / Unit</span>
+      <div class="field-value" id="printRole"></div>
+    </div>
+    <div>
+      <span class="field-label">Date</span>
+      <div class="field-value" id="printDate"></div>
+    </div>
+  </div>
+
+  <!-- Instructions -->
+  <div class="instructions">
+    <strong>How to use:</strong> Write one commitment in each section. Focus on small, specific actions. Revisit before your next shift. Your MAP travels with you across all 18 guides.
+  </div>
+
+  <!-- MAP Fields -->
+  <div class="map-fields">
+
+    <div class="map-field stop">
+      <div class="map-field-header stop">
+        <span class="badge">STOP</span>
+        <h3>One thing I will stop doing</h3>
+      </div>
+      <div class="map-field-body">
+        <div class="map-field-prompt">What assumption, habit, or shortcut will you let go of?</div>
+        <div class="map-field-lines" id="printStop">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-field start">
+      <div class="map-field-header start">
+        <span class="badge">START</span>
+        <h3>One thing I will start doing</h3>
+      </div>
+      <div class="map-field-body">
+        <div class="map-field-prompt">What new practice, question, or behaviour will you begin?</div>
+        <div class="map-field-lines" id="printStart">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-field continue">
+      <div class="map-field-header continue">
+        <span class="badge">CONTINUE</span>
+        <h3>One thing I will continue doing</h3>
+      </div>
+      <div class="map-field-body">
+        <div class="map-field-prompt">What are you already doing well that you want to keep doing? (optional)</div>
+        <div class="map-field-lines" id="printContinue">
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Quick Reference -->
+  <div class="reference-section">
+    <div class="ref-card">
+      <div class="ref-title">Quick Reference — Decision Path &amp; Practice Model</div>
+      <div class="ref-steps">
+        <div class="ref-step"><span class="num">1</span><span class="name">Pause</span><span class="desc">Notice first</span></div>
+        <div class="ref-arrow">→</div>
+        <div class="ref-step"><span class="num">2</span><span class="name">Listen</span><span class="desc">Ask, don't assume</span></div>
+        <div class="ref-arrow">→</div>
+        <div class="ref-step"><span class="num">3</span><span class="name">Apply</span><span class="desc">Use what you know</span></div>
+        <div class="ref-arrow">→</div>
+        <div class="ref-step"><span class="num">4</span><span class="name">Adapt</span><span class="desc">Adjust if needed</span></div>
+        <div class="ref-arrow">→</div>
+        <div class="ref-step"><span class="num">5</span><span class="name">Support</span><span class="desc">Reach out</span></div>
+      </div>
+      <div class="aip-grid">
+        <div class="aip-card"><div class="aip-name">Awareness</div><div class="aip-desc">Recognize needs</div></div>
+        <div class="aip-card"><div class="aip-name">Communication</div><div class="aip-desc">Ask &amp; adapt</div></div>
+        <div class="aip-card"><div class="aip-name">Environment</div><div class="aip-desc">Scan for barriers</div></div>
+        <div class="aip-card"><div class="aip-name">Response</div><div class="aip-desc">Act with dignity</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notes -->
+  <div class="notes-section">
+    <div class="notes-title">Notes</div>
+    <div class="notes-lines">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>University Health Network · Toronto, Ontario · Accessibility First · Guide 01 of 18</div>
+    <div class="confidential">PRIVATE — NOT FOR REVIEW</div>
+  </div>
+
+</div>
+
+<script>
+// Pre-fill from URL params or localStorage (when launched from course mockup)
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var name = params.get('name') || '';
+  var role = params.get('role') || '';
+  var stop = params.get('stop') || '';
+  var start = params.get('start') || '';
+  var cont = params.get('continue') || '';
+
+  // Try localStorage fallback
+  if(!name || !stop){
+    try {
+      var saved = JSON.parse(localStorage.getItem('guide01_map_responses') || '{}');
+      if(!stop && saved.mapStop) stop = saved.mapStop;
+      if(!start && saved.mapStart) start = saved.mapStart;
+      if(!cont && saved.mapContinue) cont = saved.mapContinue;
+    } catch(e){}
+    try {
+      var user = JSON.parse(localStorage.getItem('guide01_user') || '{}');
+      if(!name && user.name) name = user.name;
+      if(!role && user.role) role = user.role;
+    } catch(e){}
+  }
+
+  var today = new Date().toLocaleDateString('en-CA', {year:'numeric', month:'long', day:'numeric'});
+
+  document.getElementById('printName').textContent = name || '___________________________';
+  document.getElementById('printRole').textContent = role || '___________________________';
+  document.getElementById('printDate').textContent = today;
+
+  if(stop) document.getElementById('printStop').innerHTML = '<p style="font-size:12px;line-height:1.5;color:#111;min-height:60px;">' + stop + '</p>';
+  if(start) document.getElementById('printStart').innerHTML = '<p style="font-size:12px;line-height:1.5;color:#111;min-height:60px;">' + start + '</p>';
+  if(cont) document.getElementById('printContinue').innerHTML = '<p style="font-size:12px;line-height:1.5;color:#111;min-height:40px;">' + cont + '</p>';
+})();
+</script>
+
+</body>
+</html>
