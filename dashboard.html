@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Designer Dashboard</title>
+<style>
+  :root {
+    --bg: #f5f5f7;
+    --card: #ffffff;
+    --border: #d2d2d7;
+    --text: #1d1d1f;
+    --text-secondary: #86868b;
+    --blue: #0071e3;
+    --green: #34c759;
+    --red: #ff3b30;
+    --orange: #ff9500;
+    --gray: #8e8e93;
+    --radius: 12px;
+    --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--font);
+    color: var(--text);
+    background: var(--bg);
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .header {
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 0.5px solid rgba(0,0,0,0.1);
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header h1 { font-size: 17px; font-weight: 600; letter-spacing: -0.2px; }
+  .header-right { display: flex; align-items: center; gap: 12px; }
+  .header select {
+    padding: 7px 12px; border: 1px solid var(--border); border-radius: 8px;
+    background: var(--card); font-family: var(--font); font-size: 13px; outline: none;
+  }
+  .btn-export {
+    padding: 7px 16px; background: var(--text); color: #fff; border: 0;
+    border-radius: 8px; font-family: var(--font); font-size: 13px;
+    font-weight: 500; cursor: pointer; transition: opacity 0.2s;
+  }
+  .btn-export:hover { opacity: 0.8; }
+  .btn-back {
+    padding: 7px 16px; background: none; color: var(--blue); border: 0;
+    font-family: var(--font); font-size: 13px; font-weight: 500; cursor: pointer;
+    text-decoration: none;
+  }
+
+  /* Main */
+  .main { max-width: 1100px; margin: 0 auto; padding: 28px 32px; }
+
+  /* Stats */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+  }
+  .stat-card .num {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  .stat-card .label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    font-weight: 500;
+  }
+  .stat-card.s-approved .num { color: var(--green); }
+  .stat-card.s-changes .num { color: var(--red); }
+  .stat-card.s-flagged .num { color: var(--orange); }
+  .stat-card.s-pending .num { color: var(--gray); }
+
+  /* Filters */
+  .filters {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .filter-pill {
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--card);
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-pill:hover { border-color: var(--blue); }
+  .filter-pill.active { background: var(--text); color: #fff; border-color: var(--text); }
+
+  /* Table */
+  .table-wrap {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  table { width: 100%; border-collapse: collapse; }
+  thead th {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: left;
+    padding: 12px 20px;
+    background: var(--bg);
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+  }
+  tbody td {
+    padding: 14px 20px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    vertical-align: top;
+  }
+  tbody tr:last-child td { border-bottom: 0; }
+  tbody tr:hover td { background: rgba(0,113,227,0.02); }
+
+  .slide-num {
+    font-weight: 600;
+    color: var(--text);
+  }
+  .slide-screen {
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .status-badge .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+  }
+  .dot-approved { background: var(--green); }
+  .dot-needs_changes { background: var(--red); }
+  .dot-flagged { background: var(--orange); }
+  .dot-pending { background: var(--gray); }
+
+  .comment-cell {
+    color: #444;
+    max-width: 350px;
+    line-height: 1.5;
+  }
+  .comment-cell em { color: var(--text-secondary); }
+  .reviewer-cell { color: var(--text-secondary); }
+  .date-cell { color: var(--text-secondary); white-space: nowrap; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div style="display:flex; align-items:center; gap:16px;">
+    <a class="btn-back" href="login.html">&larr; Back</a>
+    <h1>Dashboard</h1>
+  </div>
+  <div class="header-right">
+    <select id="guideSelector"></select>
+    <button class="btn-export" onclick="exportCSV()">Export CSV</button>
+  </div>
+</header>
+
+<main class="main">
+  <div class="stats">
+    <div class="stat-card s-approved">
+      <div class="num" id="sApproved">0</div>
+      <div class="label">Approved</div>
+    </div>
+    <div class="stat-card s-changes">
+      <div class="num" id="sChanges">0</div>
+      <div class="label">Needs Changes</div>
+    </div>
+    <div class="stat-card s-flagged">
+      <div class="num" id="sFlagged">0</div>
+      <div class="label">Flagged</div>
+    </div>
+    <div class="stat-card s-pending">
+      <div class="num" id="sPending">0</div>
+      <div class="label">Pending</div>
+    </div>
+  </div>
+
+  <div class="filters">
+    <button class="filter-pill active" data-filter="all">All</button>
+    <button class="filter-pill" data-filter="approved">Approved</button>
+    <button class="filter-pill" data-filter="needs_changes">Needs Changes</button>
+    <button class="filter-pill" data-filter="flagged">Flagged</button>
+    <button class="filter-pill" data-filter="pending">Pending</button>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:70px;">Slide</th>
+          <th>Title</th>
+          <th style="width:130px;">Status</th>
+          <th>Feedback</th>
+          <th style="width:110px;">Reviewer</th>
+          <th style="width:90px;">Date</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+</main>
+
+<script src="js/supabase-config.js"></script>
+<script src="js/slide-meta.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function() {
+  var currentGuide = 1;
+  var feedbackData = {};
+  var currentFilter = 'all';
+  var sb = null;
+
+  function initSB() {
+    if (typeof window.supabase !== 'undefined' && SUPABASE_URL && !SUPABASE_URL.includes('YOUR_PROJECT')) {
+      sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    }
+  }
+
+  async function loadFeedback() {
+    if (sb) {
+      try {
+        var { data } = await sb.from(FEEDBACK_TABLE).select('*').eq('guide_id', currentGuide).order('slide_num');
+        feedbackData = {};
+        (data || []).forEach(function(r) {
+          var k = r.guide_id + '-' + r.slide_num;
+          if (!feedbackData[k]) feedbackData[k] = [];
+          feedbackData[k].push(r);
+        });
+      } catch(e) { loadLocal(); }
+    } else { loadLocal(); }
+  }
+
+  function loadLocal() {
+    try { var r = localStorage.getItem('sme_feedback_data'); if (r) feedbackData = JSON.parse(r); } catch(e) {}
+  }
+
+  function getStatus(gid, sn) {
+    var e = feedbackData[gid + '-' + sn] || [];
+    return e.length > 0 ? e[e.length-1].status || 'pending' : 'pending';
+  }
+
+  function render() {
+    var body = document.getElementById('tableBody');
+    var gm = SLIDE_META[currentGuide];
+    if (!body || !gm) return;
+
+    var c = { approved:0, needs_changes:0, flagged:0, pending:0 };
+    var html = '';
+
+    gm.slides.forEach(function(s) {
+      var st = getStatus(currentGuide, s.num);
+      c[st] = (c[st]||0) + 1;
+      if (currentFilter !== 'all' && currentFilter !== st) return;
+
+      var entries = feedbackData[currentGuide + '-' + s.num] || [];
+      var last = entries.length > 0 ? entries[entries.length-1] : null;
+
+      html += '<tr>';
+      html += '<td><span class="slide-num">' + s.num + '</span><br><span class="slide-screen">' + s.screen + '</span></td>';
+      html += '<td>' + s.title + '</td>';
+      html += '<td><span class="status-badge"><span class="dot dot-' + st + '"></span>' + st.replace('_',' ') + '</span></td>';
+      html += '<td class="comment-cell">' + (last && last.comment ? last.comment : '<em>No feedback yet</em>') + '</td>';
+      html += '<td class="reviewer-cell">' + (last ? last.reviewer : '') + '</td>';
+      html += '<td class="date-cell">' + (last ? new Date(last.updated_at || last.created_at).toLocaleDateString() : '') + '</td>';
+      html += '</tr>';
+    });
+
+    body.innerHTML = html;
+    document.getElementById('sApproved').textContent = c.approved;
+    document.getElementById('sChanges').textContent = c.needs_changes;
+    document.getElementById('sFlagged').textContent = c.flagged;
+    document.getElementById('sPending').textContent = c.pending;
+  }
+
+  // Guide selector
+  var sel = document.getElementById('guideSelector');
+  for (var g in SLIDE_META) {
+    var o = document.createElement('option'); o.value = g;
+    o.textContent = SLIDE_META[g].title; sel.appendChild(o);
+  }
+  sel.addEventListener('change', function() {
+    currentGuide = parseInt(sel.value);
+    loadFeedback().then(render);
+  });
+
+  // Filters
+  document.querySelectorAll('.filter-pill').forEach(function(b) {
+    b.addEventListener('click', function() {
+      document.querySelectorAll('.filter-pill').forEach(function(x) { x.classList.remove('active'); });
+      b.classList.add('active');
+      currentFilter = b.getAttribute('data-filter');
+      render();
+    });
+  });
+
+  // Export
+  window.exportCSV = function() {
+    var gm = SLIDE_META[currentGuide]; if (!gm) return;
+    var rows = [['Slide','Screen','Title','Status','Comment','Reviewer','Date']];
+    gm.slides.forEach(function(s) {
+      var entries = feedbackData[currentGuide+'-'+s.num] || [];
+      if (!entries.length) rows.push([s.num,s.screen,s.title,'pending','','','']);
+      else entries.forEach(function(e) {
+        rows.push([s.num,s.screen,s.title,e.status,'"'+(e.comment||'').replace(/"/g,'""')+'"',e.reviewer,e.updated_at||'']);
+      });
+    });
+    var csv = rows.map(function(r){return r.join(',');}).join('\n');
+    var b = new Blob([csv],{type:'text/csv'});
+    var a = document.createElement('a'); a.href=URL.createObjectURL(b);
+    a.download='feedback-guide-'+currentGuide+'.csv'; a.click();
+  };
+
+  initSB();
+  loadFeedback().then(render);
+})();
+</script>
+
+</body>
+</html>
